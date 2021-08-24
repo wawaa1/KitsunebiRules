@@ -118,15 +118,15 @@ rules = [each for each in rules if True in [True if w in each else False for w i
 
 wrong_rules = [each for each in rules if "*" in each]
 
-ad_block_file = join(AD_BLOCK_DIR, "site", "ad")
-ad_file = open(ad_block_file, 'r')
-ad_content = ad_file.read().split("\n")
-ad_file.close()
-for each in ad_content:
-    try:
-        rules.append("DOMAIN-SUFFIX,%s,REJECT" % each if each[0] != "." else each[1:])
-    except IndexError:
-        print(each)
+#!  ad_block_file = join(AD_BLOCK_DIR, "site", "ad")
+#!  ad_file = open(ad_block_file, 'r')
+#!  ad_content = ad_file.read().split("\n")
+#!  ad_file.close()
+#!  for each in ad_content:
+#!      try:
+#!          rules.append("DOMAIN-SUFFIX,%s,REJECT" % each if each[0] != "." else each[1:])
+#!      except IndexError:
+#!          print(each)
 
 custom_file = join(DIR, "custom.conf")
 if exists(custom_file):
